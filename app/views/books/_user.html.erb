@@ -1,22 +1,21 @@
   <div class="col-md-3">
       <h2>User info</h2>
       <img class="attachment user profile_image fallback" src="/assets/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg">
-      <%#= attachment_image_tag @book, :profileimage, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-      <%#= @user.name %>
+
       <table class="table">
         <tbody>
           <tr>
-            <th>name</th>
-            <th><%= user.name %></th>  <!--<th><%= @user.name %></th> -->
+            <td>name</td>
+            <td><%= user.name %></td>
           </tr>
           <tr>
-            <th>introduction</th>
+            <td>introduction</td>
           </tr>
         </tbody>
       </table>
       <h2>New book</h2>
       <!-- form_with部分 -->
-      <%= form_with model:book, url:'/books', local:true do |f| %>  <!-- <%= form_with model:@book, url:'/books', local:true do |f| %> -->
+      <%= form_with model:book, url:'/books', local:true do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
         <h4>Opinion</h4>

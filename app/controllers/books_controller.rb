@@ -15,20 +15,31 @@ class BooksController < ApplicationController
     @user = current_user
     @books = Book.all
   end
-
+  
   def show
+    @user = current_user
+    @books = Book.all
   end
 
   def edit
   end
+  
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
+  end
 
   def destroy
+    # @book = Book.find(params[:id]) ActiveRecord::RecordNotFound in BooksController#destroy
+    #@book.destroy
+    #redirect_to books_path
   end
 
    private
   # ストロングパラメータ
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :name)
   end
 
 end
