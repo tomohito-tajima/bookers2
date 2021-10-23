@@ -1,2 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+  　<%= render 'books/user', user: @user, book: @book %>
+    <div class="col-md-8 ">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @books do |book| %>
+        <tr>
+          <td>
+            <a href="/users/id">
+              <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
+            </a>
+          </td>
+          <td>
+            <%= link_to book.title, book_path(@books.id) %>
+          </td>
+          <td>
+            <%= book.body %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
