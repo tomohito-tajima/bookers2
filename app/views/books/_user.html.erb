@@ -1,7 +1,7 @@
   <div class="col-md-3">
       <h2>User info</h2>
-      <img class="attachment user profile_image fallback" src="/assets/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg">
-
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <!--<img class="attachment user profile_image fallback" src="/assets/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg">-->
       <table class="table">
         <tbody>
           <tr>
@@ -10,6 +10,7 @@
           </tr>
           <tr>
             <td>introduction</td>
+            <td><%= user.introduction %></td>
           </tr>
         </tbody>
       </table>
@@ -24,6 +25,6 @@
         <%= f.text_field :title %>
         <h4>Opinion</h4>
         <%= f.text_area :body %>
-        <%= f.submit 'Create Book' %>
+        <%= f.submit 'Create Book', class: "btn btn-success" %>
       <% end %>
   </div>
