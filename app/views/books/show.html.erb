@@ -8,14 +8,15 @@
         <% @books.each do |book| %>
         <tr>
           <td>
-            <a href="/users/id">
-              <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
+            <%= link_to user_path(user.id) %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
               <br>
-              <%#= user.name %>
+              <%= user.name %>
             </a>
           </td>
           <td>
-            <a class="book_id" href="/books/id"><%= book.title %></a>
+            <% link to
+            <!--<a class="book_id" href="/books/id"><%= book.title %></a>-->
           </td>
           <td>
             <%= book.body %>
