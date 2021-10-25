@@ -4,24 +4,22 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>Editing Book</h1>
-        <form action="/books/:id" accept-charset="UTF-8" method="post">
-          <input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch">
-          <input type="hidden" name="authenticity_token" value="UMu5gVjN1i3vGKWFuijGFn9hDL9/9WguA2TVj9CHIKL4CaESSCldtawAVNYNB2JVWcNttH7evx/vaKiyCnJS1A==">
+        <%= form_with model:@user, local:true do |f| %>
   　　    　<div class="form-group">
-            <label for="book_title">Title</label>
-            <input class="form-control book_title" type="text" value="テスト" name="book[title]" id="book_title">
+            <label for="book_title">Title</label></br>
+            <%= f.text_field :title, autofocus: true, id:"inputtitle", placeholder:"タイトル" %>
           </div>
           <div class="form-group">
-            <label for="book_opinion">Opinion</label>
-            <textarea class="form-control book_body" name="book[body]" id="book_body">テスト</textarea>
+            <label for="book_opinion">Opinion</label></br>
+            <%= f.text_area :body, autofocus: true, id:"inputbody", placeholder:"本文" %>
           </div>
           <div class="form-group">
-            <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+            <%= f.submit "Update Book" %>
           </div>
-        </form>
-        <a class="book_id" href="/books/:">Show</a>
+        <% end %>
+        <%= link_to "Show", book_path(@book.id) %>
         |
-        <a class="back" href="/books">Back</a>
+        <%= link_to "Back", books_path %>
       </div>
     </div>
   </div>

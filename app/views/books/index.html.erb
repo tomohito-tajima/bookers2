@@ -21,7 +21,8 @@
             </a>
           </td>
           <td>
-            <a class="book_id" href="/books/id"><%= book.title %></a>
+            <%= link_to book.title, book_path(@book.id) %>
+            <!--<a class="book_id" href="/books/id"></a>-->
           </td>
           <td>
             <%= book.body %>

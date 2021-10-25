@@ -21,10 +21,11 @@
             <%= book.body %>
           </td>
           <td>
-            <a class="btn btn-sm btn-success edit_book_id" href="/books/:id/edit">Edit</a>
+            <%= link_to "edit", edit_book_path(book.id), class: "btn btn-sm btn-success destroy_book_id" %>
+          </td>
           </td>
           <td>
-            <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_id" rel="nofollow" data-method="delete" href="/books/id">Destroy</a>
+            <%= link_to "destroy", book_path(book.id), class: "btn btn-sm btn-danger destroy_book_id", method: :delete %>
           </td>
         </tr>
         <% end %>
