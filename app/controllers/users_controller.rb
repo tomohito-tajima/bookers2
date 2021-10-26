@@ -15,14 +15,21 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+        redirect_to books_path
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user.id)
+      flash[:success] = "プロフィールの更新が成功しました"
     else
-      render :new
+      flash[:danger] = "プロフィールの更新に失敗しました"
+      render :edit
     end
   end
 
