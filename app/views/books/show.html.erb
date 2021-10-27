@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-3">
     <%= render 'books/user', book: @info, user: @book.user %>
-    <div class="col-md-8">
+    </div>
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table table-hover table-inverse">
         <tbody>

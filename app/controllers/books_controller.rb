@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     @user = @book.user
     if @book.save
       redirect_to book_path(@book.id)
-      flash[:success] = "新規投稿に成功しました"
+      flash[:success] = "You have created book successfully."
     else
       @books = Book.all
       flash.now[:danger] = "新規投稿に失敗しました"
@@ -43,9 +43,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book.id)
-      flash[:success] = "投稿の更新に成功しました"
+      flash[:success] = "You have updated book successfully."
     else
-      flash.now[:danger] = "投稿の更新に失敗しました"
+      flash.now[:danger] = "errors prohibited this obj from being saved:"
       render :edit
     end
   end
