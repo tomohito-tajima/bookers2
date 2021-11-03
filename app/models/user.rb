@@ -17,7 +17,9 @@ class User < ApplicationRecord
   #ここまで
   #ファロー・フォロワー機能のメソッド
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+    unless self.id == user_id.to_i
+      self.relationships.create(followed_id: user_id) #self = current_userだけに限定しないため
+    end
   end
 
   def unfollow(user_id)
