@@ -18,7 +18,7 @@ class User < ApplicationRecord
   #ファロー・フォロワー機能のメソッド
   def follow(user_id)
     unless self.id == user_id.to_i
-      self.relationships.create(followed_id: user_id) #self = current_userだけに限定しないため
+      self.relationships.create(followed_id: user_id) #self = current_userだけに限定しないため・書く必要はないが書かない場合も実際は隠れている
     end
   end
 
