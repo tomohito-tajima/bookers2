@@ -1,5 +1,4 @@
-class SearchesController < ApplicationController
-
+class SearchsController < ApplicationController
   def search
     #viewのform_tagにて
     #選択したmodelの値を@modelに代入。
@@ -16,7 +15,7 @@ class SearchesController < ApplicationController
   private
   def search_for(model, content, method)
     #選択したモデルがuserだったら
-    if model == 'User'
+    if model == 'user'
       #選択した検索方法が完全一致だったら
       if method =='perfect'
         User.where(name: content)
@@ -25,7 +24,7 @@ class SearchesController < ApplicationController
         User.where('name LIKE ?', '%'+content+'%') #LIKEは曖昧な際に使える
       end
     #選択したモデルがBookだったら
-    elsif model == 'Book'
+    elsif model == 'book'
       if method == 'perfect'
         Book.where(title: content)
       else
