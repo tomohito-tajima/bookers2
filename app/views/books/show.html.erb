@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-    <%= render 'books/user', book: @info, user: @book.user %>
+    <%= render 'books/user', book: @new_book, user: @book.user %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
@@ -44,10 +44,12 @@
       <div id="comments_buttons_<%= @book.id %>">
       <%= render 'book_comments/comments', book: @book %>
       </div>
-        <%= form_with(model:[@book, @book_comment], remote: true) do |f| %>
+      <div>
+        <%= form_with model: [@book, @book_comment] do |f| %>
           <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
           <%= f.submit "送信する" %>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
